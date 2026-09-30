@@ -46,7 +46,7 @@ const Footer = () => {
             <li><a href="#projects" onClick={(e) => { e.preventDefault(); handleNavClick('projects'); }} className="footer-link">Work</a></li>
             <li><a href="#about" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }} className="footer-link">About</a></li>
             <li><a href="#skills" onClick={(e) => { e.preventDefault(); handleNavClick('skills'); }} className="footer-link">Skills</a></li>
-            <li><a href="#experience" onClick={(e) => { e.preventDefault(); handleNavClick('experience'); }} className="footer-link">Timeline</a></li>
+            <li><a href="#experience" onClick={(e) => { e.preventDefault(); handleNavClick('experience'); }} className="footer-link">Education</a></li>
             <li><a href="#certifications" onClick={(e) => { e.preventDefault(); handleNavClick('certifications'); }} className="footer-link">Accreditation</a></li>
             <li><a href="#contact" onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }} className="footer-link">Contact</a></li>
           </ul>

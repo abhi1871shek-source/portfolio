@@ -1,58 +1,22 @@
-import React from 'react';
-import { Award, ExternalLink, Trophy, ShieldCheck, Milestone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ExternalLink, Trophy, ShieldCheck, Milestone, FileText, X } from 'lucide-react';
+import { certificates, achievements } from '../data/certificates';
 
 const CertificationsAchievements = () => {
-  const certifications = [
-    {
-      title: 'Machine Learning Specialization',
-      platform: 'DeepLearning.AI | Coursera',
-      desc: 'Supervised ML (Regression, Classification), Unsupervised ML (Clustering, PCA), and Recommender Systems.',
-      verifyUrl: 'https://www.linkedin.com/in/abhishek-k-56a18b422',
-      date: 'Aug 2025'
-    },
-    {
-      title: 'Google Data Analytics Professional',
-      platform: 'Google | Coursera',
-      desc: 'Data cleaning, SQL modeling, Tableau visualizations, R programming, and comprehensive pipeline analysis.',
-      verifyUrl: 'https://www.linkedin.com/in/abhishek-k-56a18b422',
-      date: 'Jun 2025'
-    },
-    {
-      title: 'Python for Data Science, AI & Development',
-      platform: 'IBM | Coursera',
-      desc: 'Object-oriented programming, data structures, working with APIs, and HTTP communication.',
-      verifyUrl: 'https://www.linkedin.com/in/abhishek-k-56a18b422',
-      date: 'Mar 2025'
-    },
-    {
-      title: 'SQL & Database Design Masterclass',
-      platform: 'Udemy Academic',
-      desc: 'Designing normal forms (1NF, 2NF, 3NF), optimization, complex JOIN queries, and schema triggers.',
-      verifyUrl: 'https://www.linkedin.com/in/abhishek-k-56a18b422',
-      date: 'Jan 2025'
-    }
-  ];
+  const [selectedMedia, setSelectedMedia] = useState(null);
 
-  const achievements = [
-    {
-      title: 'AJCE Coding Championship',
-      org: 'Amal Jyothi Annual Tech Fest',
-      rank: '#1',
-      desc: 'First place out of 50+ contestants in a speed-based computational puzzle challenge utilizing Python and Java.'
-    },
-    {
-      title: 'National Level Hackathon',
-      org: 'Smart India Hackathon (Internal)',
-      rank: 'Finalist',
-      desc: 'Spearheaded the development of a convolutional neural network (CNN) classifier to optimize crop health assessments.'
-    },
-    {
-      title: 'Kaggle Real Estate Forecasting',
-      org: 'Data Science Competition',
-      rank: 'Top 10%',
-      desc: 'Engineered advanced gradient boosting regressors (XGBoost) for predicting complex housing pricing indices.'
+  // Keyboard shortcut (Esc) to close lightbox
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedMedia(null);
+      }
+    };
+    if (selectedMedia) {
+      window.addEventListener('keydown', handleKeyDown);
     }
-  ];
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedMedia]);
 
   return (
     <section id="certifications" className="section">
@@ -62,54 +26,128 @@ const CertificationsAchievements = () => {
           <h2 className="section-title">Certifications & wins</h2>
         </div>
 
-        {/* Certifications Sub-grid */}
+        {/* Certifications Grid */}
         <h3 className="timeline-column-title" style={{ marginBottom: '24px' }}>
           <ShieldCheck size={20} className="column-icon" />
           <span>Professional certifications</span>
         </h3>
+
         <div className="certs-grid" style={{ marginBottom: '48px' }}>
-          {certifications.map((cert, index) => (
-            <div key={index} className="cert-card">
-              <div className="cert-header">
-                <div className="cert-icon">
-                  <Award size={18} />
+          {certificates.map((cert) => {
+            const isPdf = cert.image?.toLowerCase().endsWith('.pdf');
+
+            return (
+              <div
+                key={cert.id || cert.title}
+                className="cert-card"
+                onClick={() => {
+                  if (isPdf) {
+                    window.open(cert.image, '_blank', 'noopener,noreferrer');
+                  } else {
+                    setSelectedMedia(cert);
+                  }
+                }}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="cert-image-container">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    loading="lazy"
+                    className="cert-image"
+                  />
+                  {isPdf && (
+                    <div className="pdf-badge">
+                      <FileText size={16} />
+                      <span>PDF Document</span>
+                    </div>
+                  )}
                 </div>
-                <span className="cert-platform">{cert.platform}</span>
+
+                <div className="cert-content">
+                  <h4 className="cert-title">{cert.title}</h4>
+                  <div className="cert-meta">
+                    <span className="cert-issuer">{cert.issuer}</span>
+                    <span className="cert-dot">•</span>
+                    <span className="cert-date">{cert.date}</span>
+                  </div>
+                  <p className="cert-desc">{cert.description}</p>
+
+                  <div className="cert-card-action">
+                    {isPdf ? (
+                      <span className="cert-verify">
+                        <span>Open PDF</span>
+                        <ExternalLink size={12} />
+                      </span>
+                    ) : (
+                      <span className="cert-verify">
+                        <span>View certificate</span>
+                        <ExternalLink size={12} />
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
-              <h4 className="cert-title">{cert.title}</h4>
-              <p className="cert-desc">{cert.desc}</p>
-              <div className="cert-footer">
-                <a href={cert.verifyUrl} className="cert-verify" target="_blank" rel="noopener noreferrer">
-                  <span>Verify credential</span>
-                  <ExternalLink size={12} />
-                </a>
-                <span className="cert-date">{cert.date}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Achievements Sub-grid */}
-        <h3 className="timeline-column-title" style={{ marginBottom: '24px' }}>
-          <Milestone size={20} className="column-icon" />
-          <span>Milestones & contest wins</span>
-        </h3>
-        <div className="achievements-grid">
-          {achievements.map((ach, index) => (
-            <div key={index} className="achievement-card">
-              <div className="achievement-header">
-                <div className="achievement-icon">
-                  <Trophy size={18} />
+        {/* Wins / Contest Milestones Sub-area */}
+        {achievements && achievements.length > 0 && (
+          <>
+            <h3 className="timeline-column-title" style={{ marginBottom: '24px' }}>
+              <Milestone size={20} className="column-icon" />
+              <span>Milestones & contest wins</span>
+            </h3>
+            <div className="achievements-grid">
+              {achievements.map((ach, index) => (
+                <div key={index} className="achievement-card">
+                  <div className="achievement-header">
+                    <div className="achievement-icon">
+                      <Trophy size={18} />
+                    </div>
+                    <span className="achievement-rank">{ach.rank}</span>
+                  </div>
+                  <h4 className="achievement-title">{ach.title}</h4>
+                  <h5 className="achievement-org">{ach.org}</h5>
+                  <p className="achievement-desc">{ach.desc}</p>
                 </div>
-                <span className="achievement-rank">{ach.rank}</span>
-              </div>
-              <h4 className="achievement-title">{ach.title}</h4>
-              <h5 className="achievement-org">{ach.org}</h5>
-              <p className="achievement-desc">{ach.desc}</p>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedMedia && (
+        <div
+          className="lightbox-overlay"
+          onClick={() => setSelectedMedia(null)}
+        >
+          <div
+            className="lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="lightbox-close-btn"
+              onClick={() => setSelectedMedia(null)}
+              aria-label="Close modal"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={selectedMedia.image}
+              alt={selectedMedia.title}
+              className="lightbox-image"
+            />
+            <div className="lightbox-details">
+              <h4>{selectedMedia.title}</h4>
+              <p className="lightbox-meta">{selectedMedia.issuer} • {selectedMedia.date}</p>
+              <p className="lightbox-desc">{selectedMedia.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

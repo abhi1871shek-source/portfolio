@@ -10,7 +10,7 @@ const Navigation = () => {
     { name: 'Work', id: 'projects' },
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
-    { name: 'Experience', id: 'experience' },
+    { name: 'Education', id: 'experience' },
     { name: 'Certifications', id: 'certifications' },
     { name: 'Contact', id: 'contact' }
   ];
