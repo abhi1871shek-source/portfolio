@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, MessageSquare, Phone } from 'lucide-react';
 
 const GithubIcon = ({ size = 20, ...props }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -55,13 +55,23 @@ const Contact = () => {
             </div>
 
             <div className="contact-cards">
-              <a href="mailto:abhishekk.ajce@gmail.com" className="contact-card">
+              <a href="mailto:abhishekk2029@ad.ajce.in" className="contact-card">
                 <div className="contact-card-icon">
                   <Mail size={18} />
                 </div>
                 <div>
                   <div className="contact-card-title">Email me</div>
-                  <div className="contact-card-val">abhishekk.ajce@gmail.com</div>
+                  <div className="contact-card-val">abhishekk2029@ad.ajce.in</div>
+                </div>
+              </a>
+
+              <a href="tel:+918848609123" className="contact-card">
+                <div className="contact-card-icon">
+                  <Phone size={18} />
+                </div>
+                <div>
+                  <div className="contact-card-title">Phone</div>
+                  <div className="contact-card-val">8848609123</div>
                 </div>
               </a>
 
@@ -75,13 +85,13 @@ const Contact = () => {
                 </div>
               </a>
 
-              <a href="https://github.com" className="contact-card" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/abhi1871shek-source" className="contact-card" target="_blank" rel="noopener noreferrer">
                 <div className="contact-card-icon">
                   <GithubIcon size={18} />
                 </div>
                 <div>
                   <div className="contact-card-title">GitHub</div>
-                  <div className="contact-card-val">github.com/abhishek-k</div>
+                  <div className="contact-card-val">github.com/abhi1871shek-source</div>
                 </div>
               </a>
 

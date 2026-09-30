@@ -52,13 +52,13 @@ const Footer = () => {
           </ul>
 
           <div className="footer-socials">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="GitHub">
+            <a href="https://github.com/abhi1871shek-source" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="GitHub">
               <GithubIcon size={18} />
             </a>
             <a href="https://www.linkedin.com/in/abhishek-k-56a18b422" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="LinkedIn">
               <LinkedinIcon size={18} />
             </a>
-            <a href="mailto:abhishekk.ajce@gmail.com" className="footer-social-icon" aria-label="Email">
+            <a href="mailto:abhishekk2029@ad.ajce.in" className="footer-social-icon" aria-label="Email">
               <Mail size={18} />
             </a>
           </div>

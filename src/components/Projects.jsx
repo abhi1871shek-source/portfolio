@@ -20,8 +20,8 @@ const Projects = () => {
       ],
       mockupText: 'BTC',
       icon: <ShieldAlert size={28} className="project-icon" />,
-      github: 'https://github.com',
-      demo: 'https://github.com'
+      github: 'https://github.com/abhi1871shek-source',
+      demo: 'https://github.com/abhi1871shek-source'
     },
     {
       title: 'Predictive Student Analytics Engine',
@@ -33,8 +33,8 @@ const Projects = () => {
       ],
       mockupText: 'PSA',
       icon: <BarChart3 size={28} className="project-icon" />,
-      github: 'https://github.com',
-      demo: 'https://github.com'
+      github: 'https://github.com/abhi1871shek-source',
+      demo: 'https://github.com/abhi1871shek-source'
     },
     {
       title: 'LSTM Traffic Flow & Signaling Forecaster',
@@ -46,8 +46,8 @@ const Projects = () => {
       ],
       mockupText: 'TFF',
       icon: <Binary size={28} className="project-icon" />,
-      github: 'https://github.com',
-      demo: 'https://github.com'
+      github: 'https://github.com/abhi1871shek-source',
+      demo: 'https://github.com/abhi1871shek-source'
     }
   ];
 
