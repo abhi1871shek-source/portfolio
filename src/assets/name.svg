@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 160" width="100%" height="100%">
+  <defs>
+    <filter id="orange-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <style>
+    .name-svg-text {
+      font-family: 'Metal Mania', 'Impact', sans-serif;
+      font-size: 110px;
+      font-weight: 900;
+      fill: #ff9a1f;
+      letter-spacing: -3px;
+      text-transform: uppercase;
+      transform: skewX(-9deg);
+      transform-origin: center;
+      filter: url(#orange-glow);
+    }
+  </style>
+  <text x="50%" y="115" text-anchor="middle" class="name-svg-text">ABHISHEK K</text>
+</svg>
