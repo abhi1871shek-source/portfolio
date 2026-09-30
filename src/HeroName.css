@@ -91,14 +91,45 @@
 .hero-art { position: relative; z-index: 2; }
 .hero-art img { mix-blend-mode: normal; background: none; }
 
+/* Mobile Only Overrides (< 760px) */
 @media (max-width: 760px) {
+  .hero-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero-name .orb {
+    right: 0;
+    left: auto;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 55vw;
+    max-width: 280px;
+  }
+
+  .hero-name .thread {
+    height: 220px;
+    max-height: 220px;
+    top: 15px;
+    z-index: 1;
+  }
+
   .hero-name .name-wrapper {
-    top: 14%;
-    transform: translate(-50%, 0);
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92vw;
+    max-width: 92vw;
   }
 
   .hero-name .name-line {
     font-size: clamp(3.2rem, 17vw, 6rem);
+    line-height: 0.88;
   }
 }
 

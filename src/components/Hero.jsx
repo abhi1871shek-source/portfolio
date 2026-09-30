@@ -25,35 +25,47 @@ const Hero = () => {
       {/* 1. HeroName Component (z-index 1) */}
       <HeroName />
 
-      {/* 2. Character Container (z-index 2) */}
-      <div className="hero-art hero-character-wrapper" style={{ zIndex: 2 }}>
-        <img
-          src={characterImg}
-          alt="Abhishek K Character"
-          className="hero-character-img"
-          style={{ mixBlendMode: 'normal', background: 'none' }}
-        />
-      </div>
+      {/* Hero Content Container */}
+      <div className="hero-container">
+        {/* Left Column Block (Tagline, View work button, Mobile Badge) */}
+        <div className="hero-bottom-left">
+          <p className="hero-tagline">
+            Designs that inspire. Ideas that connect.
+          </p>
+          <button
+            className="hero-cta-btn"
+            onClick={() => scrollToSection('projects')}
+          >
+            <span>View work</span>
+            <ArrowUpRight className="hero-btn-arrow" />
+          </button>
 
-      {/* 3. Hero Text, Buttons & Badge (z-index 3 or higher) */}
-      <div className="hero-bottom-left" style={{ zIndex: 3 }}>
-        <p className="hero-tagline">
-          Designs that inspire. Ideas that connect.
-        </p>
-        <button
-          className="hero-cta-btn"
-          onClick={() => scrollToSection('projects')}
-        >
-          <span>View work</span>
-          <ArrowUpRight size={18} />
-        </button>
-      </div>
+          {/* Mobile Badge Container */}
+          <div className="hero-mobile-badge-wrap">
+            <div className="hero-badge">
+              <span>Available for</span>
+              <span className="badge-dot" />
+              <strong>Freelance projects</strong>
+            </div>
+          </div>
+        </div>
 
-      <div className="hero-bottom-right" style={{ zIndex: 3 }}>
-        <div className="hero-badge">
-          <span>Available for</span>
-          <span className="badge-dot" />
-          <strong>Freelance projects</strong>
+        {/* Right Column: Character Container */}
+        <div className="hero-art hero-character-wrapper">
+          <img
+            src={characterImg}
+            alt="Abhishek K Character"
+            className="hero-character-img"
+          />
+        </div>
+
+        {/* Desktop Badge */}
+        <div className="hero-bottom-right hero-desktop-badge-wrap">
+          <div className="hero-badge">
+            <span>Available for</span>
+            <span className="badge-dot" />
+            <strong>Freelance projects</strong>
+          </div>
         </div>
       </div>
     </section>
