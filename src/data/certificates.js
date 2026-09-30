@@ -22,38 +22,6 @@ export const certificates = [
     date: 'Oct 2025',
     description: 'Covers practical machine learning modeling, data analysis, and Python algorithms from the Department of IT & AI.',
     image: '/certificates/1783961066050.jpg'
-  },
-  {
-    id: 'ml-specialization',
-    title: 'Machine Learning Specialization',
-    issuer: 'DeepLearning.AI | Coursera',
-    date: 'Aug 2025',
-    description: 'Covers supervised and unsupervised machine learning algorithms and neural network design from DeepLearning.AI.',
-    image: '/certificates/ml-specialization.svg'
-  },
-  {
-    id: 'google-analytics',
-    title: 'Google Data Analytics Professional',
-    issuer: 'Google | Coursera',
-    date: 'Jun 2025',
-    description: 'Covers data analytics pipelines, SQL querying, data cleaning, and visualization techniques from Google.',
-    image: '/certificates/google-analytics.svg'
-  },
-  {
-    id: 'python-data-science',
-    title: 'Python for Data Science, AI & Development',
-    issuer: 'IBM | Coursera',
-    date: 'Mar 2025',
-    description: 'Covers Python programming fundamentals, data structures, APIs, and web data collection from IBM.',
-    image: '/certificates/python-data-science.svg'
-  },
-  {
-    id: 'sql-database-masterclass',
-    title: 'SQL & Database Design Masterclass',
-    issuer: 'Udemy Academic',
-    date: 'Jan 2025',
-    description: 'Covers relational database normalization, complex SQL JOIN queries, indexing, and schema design from Udemy.',
-    image: '/certificates/sql-database-masterclass.svg'
   }
 ];
 
